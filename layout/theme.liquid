@@ -24,10 +24,12 @@
     <!-- {{ 'application.js' | asset_url | script_tag }} -->
   </head>
   <body>
+    <!-- for each link, displays in the 'main-menu' displays an anchor tag --->
     {% for link in linklists['main-menu'].links %}
       {% assign child_list_handle = link.title | handleize %}
       {% if linklists[child_list_handle].links != blank %}
         <a href="{{ link.url }}">{{ link.title }}</a>
+        <!-- if the link has a child, loop for child and displays an anchor tag --->
         [
         {%- for childlink in linklists[child_list_handle].links %}
           <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
