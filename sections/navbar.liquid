@@ -1,0 +1,58 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- for each link, displays in the 'main-menu' displays an anchor tag - -->
+          {% for link in linklists['main-menu'].links %}
+            <!-- check if there are submenu - -->
+            {% assign child_list_handle = link.title | handleize %}
+            <!-- if the link has a child, loop for child and displays an anchor tag - -->
+            {% if linklists[child_list_handle].links != blank %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+              [
+              {%- for childlink in linklists[child_list_handle].links %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                </li>
+              {% endfor -%}
+              ]
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+          <li class="nav-item">
+            <a class="nav-link" href="/cart">cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- check if the store is open for account registration or login - -->
+{% if shop.customer_accounts_enabled %}
+  {% if customer %}
+    <a href="/account">account</a>
+    {{ 'log out' | customer_logout_link }}
+  {% else %}
+    {{ 'log in ' | customer_login_link }}
+    {{ 'register' | customer_register_link }}
+  {% endif %}
+{% endif %}
