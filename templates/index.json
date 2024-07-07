@@ -1,0 +1,12 @@
+{
+ "name": "Home page",
+ "sections": {
+  "hero-template" : {
+   "type": "hero"
+  },
+  "featured-template" : {
+   "type": "featured-collection"
+  }
+ },
+ "order": ["hero-template", "featured-template"]
+}

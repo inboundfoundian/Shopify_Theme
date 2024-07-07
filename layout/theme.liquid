@@ -19,6 +19,8 @@
       defer
     ></script>
 
+    {{ 'application.css' | asset_url | stylesheet_tag }}
+
     <!-- <script src="{{ 'application.js' | asset_url }}" defer></script> -->
     <!-- {{ 'application.css.liquid' | asset_url | stylesheet_tag }} -->
     <!-- {{ 'application.js' | asset_url | script_tag }} -->

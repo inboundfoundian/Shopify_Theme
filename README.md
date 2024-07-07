@@ -51,12 +51,12 @@
 ## File Structure
 
 <details>
-<summary>assest folder</summary>
+<summary><strong>assest folder</strong></summary>
 Contains all the assets (images, logos, css, script) of the theme.
 </details>
 
 <details>
-<summary>config folder</summary>
+<summary><strong>config folder</strong></summary>
 
 Contains the settings of the `Shopify Theme`.
 
@@ -71,20 +71,20 @@ Contains the settings of the `Shopify Theme`.
 </details>
 
 <details>
-<summary>layout folder</summary>
+<summary><strong>layout folder</strong></summary>
 
 Contains the `theme.liquid` file. Place every element you want to render or display inside this template file.
 
 </details>
 
 <details>
-<summary>locales folder</summary>
+<summary><strong>locales folder</strong></summary>
 
 This is where you create translations for your `Shopify Theme`.
 
 </details>
 <details>
-<summary>templates folder</summary>
+<summary><strong>templates folder</strong></summary>
 
 This is where you create or manage your template files for your pages. Please take note that only `.liquid` files are allowed in this folder.
 
@@ -155,3 +155,55 @@ theme watch --allow-live
 ```
 
 > **Note:** Publish your `Shopify Theme` to see changes you made.
+
+## Deprecated
+
+1. The `{{ content_for_index }}` object is no longer fuctional. This means that the `Add section` button will not appear in the customize section even if `{{ content_for_index }}` is used in the `index.liquid` file.
+
+   ### Steps to Enable `Add section` Functionality
+
+   To restore the `Add section` functionality, follow these steps:
+
+   1. Rename or delete the `index.liquid` file:
+      - Locate the `index.liquid` file in your project directory.
+      - Rename it to something else (e.g., `index-deprecated.liquid`) or delete it entirely.
+   2. Create a new `index.json` file.
+      - In the same directory where the `index.liquid` file was located, create a new file named `index.json`.
+   3. Create a json object with the following keys. `name`, `section`, and `order`.
+
+      <details>
+      <summary><strong>name</strong></summary>
+
+      `name` key specifies the name of the object.
+
+      </details>
+
+      <details>
+      <summary><strong>section</strong></summary>
+
+      `section` key contains an object that defines the sections you want to display in the `Add section` button.
+
+      </details>
+
+      <details>
+      <summary><strong>order</strong></summary>
+
+      `order` key is an array that specifies the order of the keys in the `section` object.
+
+      </details>
+
+      #### Example Structure
+
+      Here's an example structure of the `index.json` file:
+
+      ```
+      {
+         "name": "Home page",
+         "sections": {
+         "hero-template" : {
+                  "type": "hero"
+               }
+            },
+         "order": ["hero-template"]
+      }
+      ```
