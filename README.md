@@ -207,3 +207,19 @@ theme watch --allow-live
          "order": ["hero-template"]
       }
       ```
+
+## 13 Form Types
+
+1. `{% form 'active_customer_password' %}`
+2. `{% form 'contact' %}`
+3. `{% form 'currency' %}`
+4. `{% form 'customer' %}`
+5. `{% form 'create_customer' %}`
+6. `{% form 'customer_address' %}`
+7. `{% form 'customer_login' %}`
+8. `{% form 'guest_login' %}`
+9. `{% form 'new_comment' %}`
+10. `{% form 'product' %}`
+11. `{% form 'recover_customer_password' %}`
+12. `{% form 'reset_customer_password' %}`
+13. `{% form 'storefront_password' %}`

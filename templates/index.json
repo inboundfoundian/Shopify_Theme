@@ -1,5 +1,5 @@
 {
- "name": "Home page",
+ "name": "Home Page",
  "sections": {
   "hero-template" : {
    "type": "hero"
@@ -8,5 +8,5 @@
    "type": "featured-collection"
   }
  },
- "order": ["hero-template", "featured-template"]
+ "order": ["hero-template","featured-template"]
 }
