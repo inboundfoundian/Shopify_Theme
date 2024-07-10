@@ -1,6 +1,6 @@
 <header class="header">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
       <button
         class="navbar-toggler"
@@ -14,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto">
           <!-- for each link, displays in the 'main-menu' displays an anchor tag - -->
           {% for link in linklists['main-menu'].links %}
             <!-- check if there are submenu - -->
@@ -41,6 +41,11 @@
             <a class="nav-link" href="/cart">cart</a>
           </li>
         </ul>
+
+        <form action="/search" method="GET" role="search">
+          <input type="text" name="q" value="{{ search.terms |  escape }}">
+          <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
       </div>
     </div>
   </nav>

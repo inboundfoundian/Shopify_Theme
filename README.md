@@ -142,7 +142,7 @@ This is where you create or manage your template files for your pages. Please ta
 
 </details>
 
-### Deployment
+### Deployment and updating 
 
 To deploy any changes you made from your `Shopify Store` run this command.
 
@@ -152,6 +152,15 @@ theme deploy --allow-live
 
 ```
 theme watch --allow-live
+```
+To update the version and update `Shopify themekit` run this command.
+
+```
+theme version
+```
+
+```
+theme update
 ```
 
 > **Note:** Publish your `Shopify Theme` to see changes you made.

@@ -19,6 +19,7 @@
       defer
     ></script>
 
+    <script src="{{ 'application.js' |  asset_url}}" defer></script>
     {{ 'application.css' | asset_url | stylesheet_tag }}
 
     <!-- <script src="{{ 'application.js' | asset_url }}" defer></script> -->
@@ -26,11 +27,12 @@
     <!-- {{ 'application.js' | asset_url | script_tag }} -->
   </head>
   <body>
-
-    {%  section 'navbar' %}
+    {% section 'navbar' %}
 
     <main role="main">
       {{ content_for_layout }}
     </main>
+
+    {% section 'footer-section' %}
   </body>
 </html>
